@@ -8,27 +8,38 @@ import {
 import Button from '../../ui/Button';
 import { formatCurrency, FormErrors, isFormError } from '../../utils/helpers';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
+import {
+  CartItem,
+  clearCart,
+  getCart,
+  getTotalCartPrice,
+} from '../cart/cartSlice';
 import EmptyCart from '../cart/EmptyCart';
-import { createOrder, NewOrder } from '../../services/apiRestaurant';
+import { createOrder } from '../../services/apiRestaurant';
 import store, { RootState } from '../../store';
 import { useState } from 'react';
 import { fetchAddress } from '../user/userSlice';
 
-// TODO Refactor action
-
-// https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str: string) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
     str
   );
+const isValidName = (str: string) => /^[A-Za-zА-Яа-яЁё]{2,}$/u.test(str);
 
 type RawNewOrder = {
   address: string;
   phone: string;
   customer: string;
-  priority: string; // checkbox value for later
+  priority: string;
   cart: string;
+};
+
+export type NewOrder = {
+  address: string;
+  customer: string;
+  priority: boolean;
+  phone: string;
+  cart: CartItem[];
 };
 
 function CreateOrder() {
@@ -69,6 +80,11 @@ function CreateOrder() {
             defaultValue={username}
             required
           />
+          {isFormError(formErrors) && formErrors.customer && (
+            <p className='mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700'>
+              {formErrors.customer}
+            </p>
+          )}
         </div>
 
         <div className='mb-5 flex flex-col gap-2 sm:flex-row sm:items-center'>
@@ -123,7 +139,7 @@ function CreateOrder() {
             type='checkbox'
             name='priority'
             id='priority'
-            value={withPriority}
+            value={withPriority ? 'true' : 'false'}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor='priority' className='font-medium'>
@@ -167,15 +183,20 @@ export async function action({ request }: ActionFunctionArgs) {
       'Please give us your correct phone number. We might need it to contact you.';
   }
 
+  if (!isValidName(data.customer)) {
+    errors.phone =
+      'Please enter a valid name. It should contain only letters and be at least 2 characters long.';
+  }
+
   const hasErrors = Object.values(errors).some((value) => value !== '');
   if (hasErrors) return errors;
 
-  // If action returns request, react-router automatically redirects us
   const newOrder = await createOrder(data);
 
   // Do NOT overuse
   store.dispatch(clearCart());
 
+  // If action returns request, react-router automatically redirects us
   return redirect(`/order/${newOrder.id}`);
 }
 

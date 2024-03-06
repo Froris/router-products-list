@@ -1,13 +1,21 @@
 import Button from '../../ui/Button';
 import { formatCurrency } from '../../utils/helpers';
-import { MenuItem as MenuItemType } from '../../services/apiRestaurant';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addItem, CartItem, getCurrentQuantityById } from '../cart/cartSlice';
 import DeleteButton from '../../ui/DeleteButton';
 import UpdateItemQuantity from '../cart/UpdateItemQuantity';
 
-function MenuItem({ pizza }: { pizza: MenuItemType }) {
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+export type MenuItemType = {
+  id: number;
+  name: string;
+  unitPrice: number;
+  imageUrl: string;
+  ingredients: string[];
+  soldOut: boolean;
+};
+
+function MenuItem({ menuItem }: { menuItem: MenuItemType }) {
+  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = menuItem;
 
   const currentQuantity = useAppSelector(getCurrentQuantityById(id));
   const isInCart: boolean = currentQuantity > 0;

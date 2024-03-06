@@ -1,17 +1,11 @@
 // Test ID: IIDSAT
-
 import OrderItem from './OrderItem';
-
 import {
   LoaderFunctionArgs,
   useFetcher,
   useLoaderData,
 } from 'react-router-dom';
-import {
-  FetchedOrder,
-  getOrder,
-  MenuItem as MenuItemType,
-} from '../../services/apiRestaurant';
+import { getOrder } from '../../services/apiRestaurant';
 import {
   calcMinutesLeft,
   formatCurrency,
@@ -19,6 +13,19 @@ import {
 } from '../../utils/helpers';
 import { useEffect } from 'react';
 import UpdatePriority from './UpdatePriority';
+import { MenuItemType } from '../menu/MenuItem';
+import { CartItem } from '../cart/cartSlice';
+
+export type FetchedOrder = {
+  customer: string;
+  status: string;
+  priority: boolean;
+  cart: CartItem[];
+  id: string;
+  estimatedDelivery: string;
+  orderPrice: number;
+  priorityPrice: number;
+};
 
 function Order() {
   const order = useLoaderData() as FetchedOrder;

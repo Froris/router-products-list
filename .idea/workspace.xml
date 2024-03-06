@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93e27c76-c67d-4043-a856-8c00d1f15b98" name="Changes" comment="" />
+    <list default="true" id="93e27c76-c67d-4043-a856-8c00d1f15b98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/cart/CartOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/cart/CartOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/menu/MenuItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/menu/MenuItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/CreateOrder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/CreateOrder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/Order.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/Order.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/OrderItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/OrderItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/order/UpdatePriority.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/order/UpdatePriority.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/user/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/user/userSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/apiGeocoding.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/apiGeocoding.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/apiRestaurant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/apiRestaurant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/AppLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AppLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Error.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Error.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/LinkButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/LinkButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +36,9 @@
     <option name="mySelectedFileTypes">
       <set />
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -30,24 +54,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vladislav/Desktop/Templates/React (React, Query, RTK)/[router] worldwise&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/vladislav/.nvm/versions/node/v19.7.0/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/vladislav/Desktop/Templates/React (React, Query, RTK)/router-products-list/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.tslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/vladislav/Desktop/Templates/React (React, Query, RTK)/router-products-list/node_modules/typescript/lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/vladislav/Desktop/Templates/React (React, Query, RTK)/use-popcorn",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/vladislav/.nvm/versions/node/v19.7.0/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/home/vladislav/Desktop/Templates/React (React, Query, RTK)/router-products-list/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.linters.tslint",
+    "ts.external.directory.path": "/home/vladislav/Desktop/Templates/React (React, Query, RTK)/router-products-list/node_modules/typescript/lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -78,6 +104,7 @@
       <workItem from="1709552372168" duration="333000" />
       <workItem from="1709552715368" duration="15290000" />
       <workItem from="1709639184107" duration="13329000" />
+      <workItem from="1709717916170" duration="9982000" />
     </task>
     <servers />
   </component>

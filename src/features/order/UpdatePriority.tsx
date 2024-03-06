@@ -1,6 +1,7 @@
 import Button from '../../ui/Button';
 import { ActionFunctionArgs, useFetcher } from 'react-router-dom';
-import { NewOrder, updateOrder } from '../../services/apiRestaurant';
+import { updateOrder } from '../../services/apiRestaurant';
+import { NewOrder } from './CreateOrder';
 
 function UpdatePriority() {
   const fetcher = useFetcher();

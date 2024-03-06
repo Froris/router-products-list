@@ -1,39 +1,14 @@
-import { CartItem } from '../features/cart/cartSlice';
+import { MenuItemType } from '../features/menu/MenuItem';
+import { FetchedOrder } from '../features/order/Order';
+import { NewOrder } from '../features/order/CreateOrder';
 
 const API_URL = 'https://react-fast-pizza-api.onrender.com/api';
 
-export type MenuItem = {
-  id: number;
-  name: string;
-  unitPrice: number;
-  imageUrl: string;
-  ingredients: string[];
-  soldOut: boolean;
-};
-
-export type NewOrder = {
-  address: string;
-  customer: string;
-  priority: boolean;
-  phone: string;
-  cart: CartItem[];
-};
-
-export type FetchedOrder = {
-  customer: string;
-  status: string;
-  priority: boolean;
-  cart: CartItem[];
-  id: string;
-  estimatedDelivery: string;
-  orderPrice: number;
-  priorityPrice: number;
-};
-
-export async function getMenu(): Promise<MenuItem[]> {
+export async function getMenu(): Promise<MenuItemType[]> {
   const res = await fetch(`${API_URL}/menu`);
 
-  // fetch won't throw error on 400 errors (e.g. when URL is wrong), so we need to do it manually. This will then go into the catch block, where the message is set
+  // fetch won't throw error on 400 errors (e.g. when URL is wrong), so
+  // we need to do it manually. This will then go into the catch block, where the message is set.
   if (!res.ok) throw Error('Failed getting menu');
 
   const { data } = await res.json();
@@ -57,28 +32,41 @@ export async function createOrder(newOrder: NewOrder): Promise<FetchedOrder> {
         'Content-Type': 'application/json',
       },
     });
-
-    if (!res.ok) throw Error();
+ 
+    if (!res.ok) {
+      throw Error('Failed to create order: HTTP status ' + res.status);
+    }
     const { data } = await res.json();
     return data;
-  } catch {
-    throw Error('Failed creating your order');
+  } catch (error) {
+    if (error instanceof Error) {
+      throw Error('Failed to create order: ' + error.message);
+    } else {
+      throw Error('Failed to create order');
+    }
   }
 }
 
-export async function updateOrder(id, updateObj) {
-  try {
-    const res = await fetch(`${API_URL}/order/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(updateObj),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+export async function updateOrder(
+  id: string | undefined,
+  updateObj: Partial<NewOrder>
+) {
+  if (id) {
+    try {
+      const res = await fetch(`${API_URL}/order/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(updateObj),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    if (!res.ok) throw Error();
-    // We don't need the data, so we don't return anything
-  } catch (err) {
-    throw Error('Failed updating your order');
+      if (!res.ok) throw Error();
+      // We don't need the data, so we don't return anything
+    } catch (err) {
+      throw Error('Failed updating your order');
+    }
+  } else {
+    throw Error('Failed updating your order. The order ID is undefined.');
   }
 }

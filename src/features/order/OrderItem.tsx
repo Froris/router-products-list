@@ -1,17 +1,13 @@
 import { formatCurrency } from '../../utils/helpers';
 import { CartItem } from '../cart/cartSlice';
 
-// @ts-expect-error for future Component updates
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function OrderItem({
-  item,
-  isLoadingIngredients,
-  ingredients,
-}: {
+type Props = {
   item: CartItem;
   isLoadingIngredients: boolean;
   ingredients: string[] | undefined;
-}) {
+};
+
+function OrderItem({ item, isLoadingIngredients, ingredients }: Props) {
   const { quantity, name, totalPrice } = item;
 
   return (

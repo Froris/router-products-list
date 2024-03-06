@@ -44,3 +44,11 @@ export async function getAddress({
   const data = await res.json();
   return data;
 }
+
+export async function getPosition(): Promise<
+  GeolocationPosition | GeolocationPositionError
+> {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}

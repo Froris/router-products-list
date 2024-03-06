@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
-import { getAddress } from '../../services/apiGeocoding';
+import { getAddress, getPosition } from '../../services/apiGeocoding';
 import { isGeoError } from '../../utils/helpers';
 
 type UserSliceState = {
@@ -10,14 +10,6 @@ type UserSliceState = {
   address: string;
   error: string;
 };
-
-function getPosition(): Promise<
-  GeolocationPosition | GeolocationPositionError
-> {
-  return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-}
 
 export const fetchAddress = createAsyncThunk<
   {
@@ -43,7 +35,6 @@ export const fetchAddress = createAsyncThunk<
   // Then we use a reverse geocoding API to get a description of the user's address,
   // so we can display it the order form, so that the user can correct it if wrong.
   try {
-    throw new Error();
     const addressObj = await getAddress(position);
     const address = `${addressObj.locality}, ${addressObj.city} ${addressObj.postcode}, ${addressObj.countryName}`;
 
@@ -56,7 +47,7 @@ export const fetchAddress = createAsyncThunk<
 });
 
 const initialState: UserSliceState = {
-  userName: 'Vladislav',
+  userName: '',
   status: 'idle',
   position: { latitude: 0, longitude: 0 },
   address: '',
